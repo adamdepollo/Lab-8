@@ -3,6 +3,7 @@
  */
 package co.grandcircus;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Lab8 {
@@ -17,6 +18,7 @@ public class Lab8 {
 			// Validator.getInt()
 			int studentNum = Validator.getInt(scnr, "Which student would you like to know about? (pick a number 1-10)",
 					1, 10);
+			//scnr.nextLine();
 			System.out.println();
 			// Pull and print student name using the getStudentInfo array item at the user's
 			// pick
@@ -24,14 +26,20 @@ public class Lab8 {
 			System.out.println();
 
 			// Create a loop to continually ask user what info they want to know
-			String goAgain;
+			String goAgain = "yes";
 			do {
 				System.out.println(
 						"What would you like to know about them?\n 1. Their age\n 2. Their hometown\n 3. The price at which they would be willing to sell the rights to their likeness and identity for promotional purposes");
 
 				// Call validateInfoChoice method to try/catch for out of index exceptions on
 				// user choice and print requested info if input is valid
-				validateInfoChoice(scnr, studentNum);
+				//try {
+					validateInfoChoice(scnr, studentNum);
+				//}
+				//catch (InputMismatchException e) {
+					//System.out.println("Whoops, that wasn't one of the options. Try again.");
+					//break;
+				//}
 
 				// Clear scanner
 				scnr.nextLine();
@@ -100,8 +108,15 @@ public class Lab8 {
 			}
 		} 
 		//If user enters a number that isn't defined, ask them to put info again and run the method again using the new input
-		catch (IndexOutOfBoundsException e) {
+		catch (IndexOutOfBoundsException e1) {
 			System.out.println("Whoops, that wasn't one of the options. Try again:");
+			//int infoChoice = scnr.nextInt();
+			validateInfoChoice(scnr, studentNum);
+		}
+		
+		catch (InputMismatchException e1) {
+			System.out.println("Whoops, that wasn't one of the options. Try again:");
+			scnr.nextLine();
 			validateInfoChoice(scnr, studentNum);
 		}
 	}
