@@ -18,8 +18,8 @@ public class Lab8 {
 			// Validator.getInt()
 			int studentNum = Validator.getInt(scnr, "Which student would you like to know about? (pick a number 1-10)",
 					1, 10);
-			// scnr.nextLine();
 			System.out.println();
+			
 			// Pull and print student name using the getStudentInfo array item at the user's
 			// pick
 			System.out.println("Alright, that student's name is " + getStudentInfo(0)[studentNum - 1] + ".");
