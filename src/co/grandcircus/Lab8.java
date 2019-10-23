@@ -48,7 +48,7 @@ public class Lab8 {
 				// Ask whether the user would like to know more info about this student and
 				// break
 				// loop if not
-				System.out.println("Do you want to know more info about them? (yes/no)");
+				System.out.println("Do you want to know more about them? (yes/no)");
 				goAgain = scnr.nextLine();
 				System.out.println();
 			} while (goAgain.equalsIgnoreCase("yes"));
@@ -61,6 +61,7 @@ public class Lab8 {
 		}
 
 		// Say goodbye to user and close scanner
+		System.out.println();
 		System.out.println("Ok then, bye!");
 		scnr.close();
 	}
