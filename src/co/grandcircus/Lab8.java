@@ -18,7 +18,7 @@ public class Lab8 {
 			// Validator.getInt()
 			int studentNum = Validator.getInt(scnr, "Which student would you like to know about? (pick a number 1-10)",
 					1, 10);
-			//scnr.nextLine();
+			// scnr.nextLine();
 			System.out.println();
 			// Pull and print student name using the getStudentInfo array item at the user's
 			// pick
@@ -33,13 +33,8 @@ public class Lab8 {
 
 				// Call validateInfoChoice method to try/catch for out of index exceptions on
 				// user choice and print requested info if input is valid
-				//try {
-					validateInfoChoice(scnr, studentNum);
-				//}
-				//catch (InputMismatchException e) {
-					//System.out.println("Whoops, that wasn't one of the options. Try again.");
-					//break;
-				//}
+
+				validateInfoChoice(scnr, studentNum);
 
 				// Clear scanner
 				scnr.nextLine();
@@ -78,8 +73,8 @@ public class Lab8 {
 				"James-on-the-Wheatroll", "Jacksonville", "Little Johnton", "James' Long Shadow", "Johnny Knoxville",
 				"Jomntowm" };
 		String[] age = { "12", "14", "76", "22", "47", "52", "32", "40", "19", "85" };
-		String[] selloutPrice = { "$55.99", "$125.00", "$4,999,999.99", "$4,999.99", "$3.50", "$7.99", "$800.00", "$29.99",
-				"$12.42", "$6.66" };
+		String[] selloutPrice = { "$55.99", "$125.00", "$4,999,999.99", "$4,999.99", "$3.50", "$7.99", "$800.00",
+				"$29.99", "$12.42", "$6.66" };
 		if (userChoice == 0) {
 			return names;
 		} else if (userChoice == 1) {
@@ -91,10 +86,11 @@ public class Lab8 {
 		}
 		return defaultArray;
 	}
-	
-	//Create a method to validate user's info request
+
+	// Create a method to validate user's info request
 	public static void validateInfoChoice(Scanner scnr, int studentNum) {
-		//Try to draw info from the studentInfo method repository based on the user's input
+		// Try to draw info from the studentInfo method repository based on the user's
+		// input
 		try {
 			int infoChoice = scnr.nextInt();
 			String info = getStudentInfo(infoChoice)[studentNum - 1];
@@ -107,14 +103,15 @@ public class Lab8 {
 				System.out.println("OK, " + getStudentInfo(0)[studentNum - 1]
 						+ " is willing to sell the rights to their likeness for " + info + ".");
 			}
-		} 
-		//If user enters a number that isn't defined, ask them to put info again and run the method again using the new input
+		}
+		// If user enters a number that isn't defined, ask them to put info again and
+		// run the method again using the new input
 		catch (IndexOutOfBoundsException e1) {
 			System.out.println("Whoops, that wasn't one of the options. Try again:");
-			//int infoChoice = scnr.nextInt();
+			// int infoChoice = scnr.nextInt();
 			validateInfoChoice(scnr, studentNum);
 		}
-		
+
 		catch (InputMismatchException e1) {
 			System.out.println("Whoops, that wasn't one of the options. Try again:");
 			scnr.nextLine();
